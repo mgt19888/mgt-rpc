@@ -1,0 +1,5 @@
+jdk=com.mgt.mgtrpc.serializer.JdkSerializer
+hessian=com.mgt.mgtrpc.serializer.HessianSerializer
+json=com.mgt.mgtrpc.serializer.JsonSerializer
+kryo=com.mgt.mgtrpc.serializer.KryoSerializer
+protobuf=com.mgt.mgtrpc.serializer.ProtobufSerializer
