@@ -30,6 +30,8 @@ public class EasyProviderExample {
         Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName(serviceName);
+        serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
+        serviceMetaInfo.setServicePort(rpcConfig.getServerPort());
         serviceMetaInfo.setServiceAddress(rpcConfig.getServerHost() + ":" + rpcConfig.getServerPort());
         try {
             registry.register(serviceMetaInfo);

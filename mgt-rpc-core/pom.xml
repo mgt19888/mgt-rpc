@@ -24,7 +24,7 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- 序列化 -->
+    <!-- 序列化器 -->
     <!-- https://mvnrepository.com/artifact/com.caucho/hessian -->
     <dependency>
       <groupId>com.caucho</groupId>
@@ -72,12 +72,20 @@
       <artifactId>objenesis</artifactId>
       <version>3.0.1</version>
     </dependency>
+
+    <!--注册中心-->
     <!--jetcd-->
     <!-- https://mvnrepository.com/artifact/io.etcd/jetcd-core -->
     <dependency>
       <groupId>io.etcd</groupId>
       <artifactId>jetcd-core</artifactId>
       <version>0.7.7</version>
+    </dependency>
+    <!-- zookeeper -->
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-x-discovery</artifactId>
+      <version>5.6.0</version>
     </dependency>
     <!-- https://doc.hutool.cn/ -->
     <dependency>

@@ -1,1 +1,2 @@
 etcd=com.mgt.mgtrpc.registry.EtcdRegistry
+zookeeper=com.mgt.mgtrpc.registry.ZooKeeperRegistry
