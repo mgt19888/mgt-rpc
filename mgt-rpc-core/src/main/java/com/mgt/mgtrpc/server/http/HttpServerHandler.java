@@ -1,4 +1,4 @@
-package com.mgt.mgtrpc.server;
+package com.mgt.mgtrpc.server.http;
 
 import com.mgt.mgtrpc.RpcApplication;
 import com.mgt.mgtrpc.model.RpcRequest;

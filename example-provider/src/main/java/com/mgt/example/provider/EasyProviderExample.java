@@ -9,7 +9,8 @@ import com.mgt.mgtrpc.registry.LocalRegistry;
 import com.mgt.mgtrpc.registry.Registry;
 import com.mgt.mgtrpc.registry.RegistryFactory;
 import com.mgt.mgtrpc.server.HttpServer;
-import com.mgt.mgtrpc.server.VertxHttpServer;
+import com.mgt.mgtrpc.server.http.VertxHttpServer;
+import com.mgt.mgtrpc.server.tcp.VertxTcpServer;
 
 /**
  * 简易服务提供者
@@ -40,7 +41,11 @@ public class EasyProviderExample {
         }
 
         // 启动 web 服务
-        HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+//        HttpServer httpServer = new VertxHttpServer();
+//        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+
+        // 启动 TCP 服务
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
     }
 }

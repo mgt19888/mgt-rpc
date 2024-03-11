@@ -1,5 +1,6 @@
-package com.mgt.mgtrpc.server;
+package com.mgt.mgtrpc.server.http;
 
+import com.mgt.mgtrpc.server.HttpServer;
 import io.vertx.core.Vertx;
 
 public class VertxHttpServer implements HttpServer {

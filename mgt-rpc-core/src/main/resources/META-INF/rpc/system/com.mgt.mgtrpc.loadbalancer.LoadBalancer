@@ -1,0 +1,4 @@
+roundRobin=com.mgt.mgtrpc.loadbalancer.RoundRobinLoadBalancer
+random=com.mgt.mgtrpc.loadbalancer.RandomLoadBalancer
+consistentHash=com.mgt.mgtrpc.loadbalancer.ConsistentHashLoadBalancer
+ 

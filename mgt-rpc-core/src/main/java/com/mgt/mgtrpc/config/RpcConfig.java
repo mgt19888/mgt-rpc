@@ -1,5 +1,6 @@
 package com.mgt.mgtrpc.config;
 
+import com.mgt.mgtrpc.loadbalancer.LoadBalancerKeys;
 import com.mgt.mgtrpc.serializer.SerializerKeys;
 import lombok.Data;
 
@@ -43,4 +44,9 @@ public class RpcConfig {
      * 注册中心配置
      */
     private RegistryConfig registryConfig = new RegistryConfig();
+
+    /**
+     * 负载均衡器
+     */
+    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
 }
