@@ -28,6 +28,11 @@ public class RpcRequest implements Serializable {
     private String methodName;
 
     /**
+     * 源ip
+     */
+    private String ip;
+
+    /**
      * 服务版本
      */
     private String serviceVersion = RpcConstant.DEFAULT_SERVICE_VERSION;

@@ -1,0 +1,4 @@
+no=com.mgt.mgtrpc.fault.retry.NoRetryStrategy
+fixedInterval=com.mgt.mgtrpc.fault.retry.FixedIntervalRetryStrategy
+exponentialBackoff=com.mgt.mgtrpc.fault.retry.ExponentialBackoffRetryStrategy
+randomDelay=com.mgt.mgtrpc.fault.retry.RandomDelayRetryStrategy
