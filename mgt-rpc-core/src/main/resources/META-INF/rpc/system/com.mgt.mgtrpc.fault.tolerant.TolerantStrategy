@@ -1,0 +1,4 @@
+failBack=com.mgt.mgtrpc.fault.tolerant.FailBackTolerantStrategy
+failFast=com.mgt.mgtrpc.fault.tolerant.FailFastTolerantStrategy
+failOver=com.mgt.mgtrpc.fault.tolerant.FailOverTolerantStrategy
+failSafe=com.mgt.mgtrpc.fault.tolerant.FailSafeTolerantStrategy

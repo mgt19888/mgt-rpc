@@ -6,6 +6,8 @@ import com.mgt.mgtrpc.config.RpcConfig;
 import com.mgt.mgtrpc.constant.RpcConstant;
 import com.mgt.mgtrpc.fault.retry.RetryStrategy;
 import com.mgt.mgtrpc.fault.retry.RetryStrategyFactory;
+import com.mgt.mgtrpc.fault.tolerant.TolerantStrategy;
+import com.mgt.mgtrpc.fault.tolerant.TolerantStrategyFactory;
 import com.mgt.mgtrpc.loadbalancer.LoadBalancer;
 import com.mgt.mgtrpc.loadbalancer.LoadBalancerFactory;
 import com.mgt.mgtrpc.model.RpcRequest;
@@ -66,14 +68,23 @@ public class TcpServiceProxy implements InvocationHandler {
             Map<String, Object> requestParams = new HashMap<>();
             requestParams.put("ip", rpcRequest.getIp());
             requestParams.put("methodName", rpcRequest.getMethodName());
+            requestParams.put("serviceName", serviceName);
             ServiceMetaInfo selectedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfoList);
 
-            // 发送 TCP 请求
+            // rpc 请求
             // 使用重试机制
-            RetryStrategy retryStrategy = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());
-            RpcResponse rpcResponse = retryStrategy.doRetry(() ->
-                    VertxTcpClient.doRequest(rpcRequest, selectedServiceMetaInfo)
-            );
+            RpcResponse rpcResponse;
+            try {
+                RetryStrategy retryStrategy = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());
+                rpcResponse = retryStrategy.doRetry(() ->
+                        VertxTcpClient.doRequest(rpcRequest, selectedServiceMetaInfo)
+                );
+            } catch (Exception e) {
+                // 容错机制
+                TolerantStrategy tolerantStrategy = TolerantStrategyFactory.getInstance(rpcConfig.getTolerantStrategy());
+//                requestParams.put("serviceName", serviceName);
+                rpcResponse = tolerantStrategy.doTolerant(requestParams, e);
+            }
             return rpcResponse.getData();
         } catch (Exception e) {
             throw new RuntimeException("调用失败");
