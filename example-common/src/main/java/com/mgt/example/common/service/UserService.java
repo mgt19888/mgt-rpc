@@ -21,4 +21,11 @@ public interface UserService {
     default short getNumber() {
         return 1;
     }
+
+    /**
+     * 新方法 - 获取字符串
+     */
+    default String getString() {
+        return "wbf";
+    }
 }

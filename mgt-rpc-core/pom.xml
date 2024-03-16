@@ -96,6 +96,14 @@
       <version>2.0.0</version>
     </dependency>
 
+
+    <!--数据生成-->
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+
     <!-- https://doc.hutool.cn/ -->
     <dependency>
       <groupId>cn.hutool</groupId>

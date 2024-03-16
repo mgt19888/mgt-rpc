@@ -22,7 +22,9 @@ public class EasyComsumerExample {
         } else {
             System.out.println("user == null");
         }
-        long number = userService.getNumber();
-        System.out.println(number);
+//        long number = userService.getNumber();
+//        System.out.println(number);
+        String s = userService.getString();
+        System.out.println("字符串：" + s);
     }
 }
